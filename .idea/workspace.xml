@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="264f96e6-283e-4a4e-91c6-6f2496a91b3d" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="398">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+              <folding>
+                <element signature="n#style#0;n#video#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#video#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#video#1;n#body#0;n#html#0;n#!!top" />
+                <element signature="e#560#714#0" />
+                <element signature="e#730#857#0" />
+                <element signature="e#859#6511#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="128">
+              <caret line="157" column="34" lean-forward="true" selection-start-line="157" selection-start-column="34" selection-end-line="157" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#64#0" expanded="true" />
+                <element signature="e#1872#4842#0" />
+                <element signature="e#5946#6562#0" />
+                <element signature="e#6584#8119#0" />
+                <element signature="e#8145#10833#0" />
+                <element signature="e#10878#17375#0" />
+                <element signature="e#17408#21207#0" />
+                <element signature="e#21242#30967#0" />
+                <element signature="e#31007#31650#0" />
+                <element signature="e#31703#32137#0" />
+                <element signature="e#32160#33920#0" />
+                <element signature="e#33966#35183#0" />
+                <element signature="e#35208#35625#0" />
+                <element signature="e#35648#36220#0" />
+                <element signature="e#36248#36412#0" />
+                <element signature="e#36444#40413#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plugins/Three/module/jsm/webxr/Text2D.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="650">
+              <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>controls</find>
+      <find>group</find>
+      <find>renderer.setSize</find>
+      <find>onSelectEnd</find>
+      <find>box2</find>
+      <find>object.material</find>
+      <find>phoneNum</find>
+      <find>numInputText</find>
+      <find>VRButton</find>
+      <find>createText</find>
+      <find>wel1Button</find>
+      <find>wel2Button</find>
+      <find>prevButton</find>
+      <find>geometry3</find>
+      <find>business4Button</find>
+      <find>business5Button</find>
+      <find>cleanIntersected</find>
+      <find>makeButtonMesh</find>
+      <find>RGBELoader</find>
+      <find>enterPage</find>
+      <find>curveHandles</find>
+      <find>mixer</find>
+      <find>boyMixer</find>
+      <find>PlaneGeometry</find>
+      <find>gop2</find>
+      <find>FontLoader</find>
+      <find>Flow</find>
+      <find>videoDom</find>
+      <find>loadingCallAnimate</find>
+      <find>callVideoMesh</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/views/webxr_vr_dragging.html" />
+        <option value="$PROJECT_DIR$/css/main.css" />
+        <option value="$USER_HOME$/Desktop/index.js" />
+        <option value="$PROJECT_DIR$/plugins/Three/module/jsm/loaders/FontLoader.js" />
+        <option value="$PROJECT_DIR$/plugins/Three/module/jsm/modifiers/CurveModifier.js" />
+        <option value="$PROJECT_DIR$/plugins/Three/module/jsm/geometries/TextGeometry.js" />
+        <option value="$PROJECT_DIR$/plugins/Three/module/jsm/webxr/Text2D.js" />
+        <option value="$PROJECT_DIR$/js/index.js" />
+        <option value="$PROJECT_DIR$/views/index.html" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="21" />
+    <option name="y" value="31" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ued-webgl-vr" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ued-webgl-vr" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ued-webgl-vr" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ued-webgl-vr" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ued-webgl-vr" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ued-webgl-vr" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ued-webgl-vr" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ued-webgl-vr" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="Three" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ued-webgl-vr" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ued-webgl-vr" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="Three" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ued-webgl-vr" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ued-webgl-vr" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="Three" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+              <item name="jsm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ued-webgl-vr" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ued-webgl-vr" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ued-webgl-vr-无源码" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="ts.external.directory.path" value="F:\webstorm\WebStorm 2018.3.5\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\工作成果\2022\元宇宙\实验室\ued-webgl-vr\plugins\Three\module" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="264f96e6-283e-4a4e-91c6-6f2496a91b3d" name="Default Changelist" comment="" />
+      <created>1651807484314</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1651807484314</updated>
+      <workItem from="1651807485518" duration="6576000" />
+      <workItem from="1651828251919" duration="20388000" />
+      <workItem from="1652059071332" duration="19017000" />
+      <workItem from="1652145652532" duration="20204000" />
+      <workItem from="1652232004822" duration="18899000" />
+      <workItem from="1652318363441" duration="13588000" />
+      <workItem from="1652405388463" duration="19195000" />
+      <workItem from="1652664225010" duration="27769000" />
+      <workItem from="1652836819965" duration="6626000" />
+      <workItem from="1652925086971" duration="1394000" />
+      <workItem from="1653010223408" duration="12932000" />
+      <workItem from="1653269822687" duration="16040000" />
+      <workItem from="1653356535799" duration="9408000" />
+      <workItem from="1653381030574" duration="1206000" />
+      <workItem from="1653446102820" duration="9192000" />
+      <workItem from="1653528828039" duration="2041000" />
+      <workItem from="1653549920717" duration="601000" />
+      <workItem from="1653617397139" duration="268000" />
+      <workItem from="1653959916872" duration="1670000" />
+      <workItem from="1654132866346" duration="2749000" />
+      <workItem from="1654479340097" duration="9357000" />
+      <workItem from="1654565689518" duration="15299000" />
+      <workItem from="1654651720110" duration="16912000" />
+      <workItem from="1654738493057" duration="829000" />
+      <workItem from="1654742158386" duration="236000" />
+      <workItem from="1654742450594" duration="596000" />
+      <workItem from="1654760036459" duration="3563000" />
+      <workItem from="1654913064204" duration="9075000" />
+      <workItem from="1655087685807" duration="2046000" />
+      <workItem from="1655173431806" duration="3096000" />
+      <workItem from="1655256195979" duration="800000" />
+      <workItem from="1655285934572" duration="5000" />
+      <workItem from="1655517851527" duration="1467000" />
+      <workItem from="1655688405847" duration="39000" />
+      <workItem from="1655707511975" duration="10763000" />
+      <workItem from="1655773988588" duration="2649000" />
+      <workItem from="1655782814936" duration="811000" />
+      <workItem from="1655878341855" duration="1678000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="288748000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18914647" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="TypeScript" order="11" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="E:/svn/USI-UED-Creative/trunk/src/node_modules/sift/src/index.d.ts" />
+        <option value="E:/svn/USI-UED-Creative/trunk/src/node_modules/sift/src/core.js.map" />
+        <option value="E:/svn/USI-UED-Creative/trunk/src/node_modules/sift/src/index.js.map" />
+        <option value="E:/svn/USI-UED-Creative/trunk/src/node_modules/sift/src/core.d.ts" />
+        <option value="E:/svn/USI-UED-Creative/trunk/src/node_modules/sift/src/operations.d.ts" />
+        <option value="E:/svn/USI-UED-Creative/trunk/src/node_modules/sift/src/utils.d.ts" />
+      </list>
+    </option>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../../../3D/虚拟幻境/3d-dreamland/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2550" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/Three/module/jsm/loaders/GLTFLoader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2050">
+          <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+          <folding>
+            <element signature="e#255#1283#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/Three/module/jsm/webxr/XRControllerModelFactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="47" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/Three/module/jsm/controls/OrbitControls.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/Three/module/jsm/webxr/ARButton.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/Three/module/jsm/webxr/VRButton.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/Three/module/jsm/webxr/XRControllerModelFactory.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="26" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/Three/module/jsm/webxr/XRHandModelFactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/Three/module/jsm/webxr/XRHandOculusMeshModel.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/AlphaVideoControl.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/webxr_vr_dragging.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/Three/module/js/libs/cannon.js" />
+    <entry file="file://$PROJECT_DIR$/plugins/Three/build/three.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="5601" column="8" selection-start-line="5601" selection-start-column="8" selection-end-line="5601" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/Three/module/jsm/loaders/RGBELoader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13225">
+          <caret line="540" column="19" selection-start-line="540" selection-start-column="9" selection-end-line="540" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/index.js" />
+    <entry file="file://$PROJECT_DIR$/plugins/Three/module/jsm/geometries/TextGeometry.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/Three/module/jsm/modifiers/CurveModifier.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="15" column="38" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/Three/module/jsm/loaders/FontLoader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/Three/module/jsm/loaders/FBXLoader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1075">
+          <caret line="43" column="38" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/Three/build/three.module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="823">
+          <caret line="45144" column="30" selection-start-line="45144" selection-start-column="30" selection-end-line="45144" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/Three/module/jsm/webxr/Text2D.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="n#style#0;n#video#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#video#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#video#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="e#560#714#0" />
+            <element signature="e#730#857#0" />
+            <element signature="e#859#6511#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="157" column="34" lean-forward="true" selection-start-line="157" selection-start-column="34" selection-end-line="157" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#64#0" expanded="true" />
+            <element signature="e#1872#4842#0" />
+            <element signature="e#5946#6562#0" />
+            <element signature="e#6584#8119#0" />
+            <element signature="e#8145#10833#0" />
+            <element signature="e#10878#17375#0" />
+            <element signature="e#17408#21207#0" />
+            <element signature="e#21242#30967#0" />
+            <element signature="e#31007#31650#0" />
+            <element signature="e#31703#32137#0" />
+            <element signature="e#32160#33920#0" />
+            <element signature="e#33966#35183#0" />
+            <element signature="e#35208#35625#0" />
+            <element signature="e#35648#36220#0" />
+            <element signature="e#36248#36412#0" />
+            <element signature="e#36444#40413#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
