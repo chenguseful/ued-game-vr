@@ -47,6 +47,8 @@ var oneButton, twoButton, threeButton, fourButton, fiveButton, sixButton, sevenB
 /*模型中需要旋转的物体组*/
 var rotateList = [];
 
+var preview;
+
 init();
 animate();
 
@@ -55,15 +57,11 @@ function init() {
     container = document.getElementById('container');
 
     scene = new THREE.Scene();
-    //scene.background = new THREE.Color(0x808080);
-
     camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100000);
+    camera.layers.enable(1);
     camera.position.set(5, 2, 30);
-    //camera.layers.enable( 0 ); //参考全景视频案例中添加，layers：当摄像机的视点被渲染的时候，物体必须和当前被看到的摄像机共享至少一个层
 
     controls = new OrbitControls(camera, container);
-    //controls.target.set(0, 1.6, 0);
-    //controls.target.set(camera.position);
     controls.update();
 
     scene.add(new THREE.HemisphereLight(0x808080, 0x606060));
@@ -71,35 +69,14 @@ function init() {
     var light = new THREE.DirectionalLight(0x1a69ec,0.5);
     light.position.set(0, 1, 0);
     light.castShadow = true;
-    /*light.shadow.camera.top = 2;
-    light.shadow.camera.bottom = -2;
-    light.shadow.camera.right = 2;
-    light.shadow.camera.left = -2;
-    light.shadow.mapSize.set(4096, 4096);*/
     scene.add(light);
 
     var point = new THREE.PointLight(0xffffff, 1, 100);
     point.position.set(0, 0, 0);
-    //scene.add(point);
 
     /*可点击群组*/
     group = new THREE.Group();
     scene.add(group);
-
-    // 加载场景、模型
-    addSky()
-    initEnterPage()
-    initPageOne()
-    initPageTwo()
-    initPageThree()
-
-    loadModel()
-    loadingCallAnimate()
-    /*旋转文字*/
-    //initRotateText()
-
-    //loadAnimate()
-    //loadVideo()
 
     renderer = new THREE.WebGLRenderer({
         antialias: true
@@ -148,23 +125,59 @@ function init() {
 
     window.addEventListener('resize', onWindowResize, false);
 
+    preview = new THREE.Group();
+    scene.add(preview)
+
+    initPreview()
+    addSky()
+}
+
+function initPreview() {
+    var video = document.getElementById('build');
+    video.play();
+
+    var geometryL = new THREE.SphereBufferGeometry(50, 50, 50);
+    geometryL.scale(-1, 1, 1);
+
+    var textureL = new THREE.VideoTexture(video);
+    var materialL = new THREE.MeshBasicMaterial({
+        map: textureL
+    });
+
+    var skyBoxL = new THREE.Mesh(geometryL, materialL);
+    skyBoxL.layers.set(1);
+    preview.add(skyBoxL);
+
+    var geometryR = new THREE.SphereBufferGeometry(50, 50, 50);
+    geometryR.scale(-1, 1, 1);
+
+    var textureR = new THREE.VideoTexture(video);
+    var materialR = new THREE.MeshBasicMaterial({
+        map: textureR
+    });
+
+    var skyBoxR = new THREE.Mesh(geometryR, materialR);
+    skyBoxR.layers.set(2);
+    preview.add(skyBoxR);
+
+    video.addEventListener('ended', function(){
+        scene.remove(preview)
+        initActual()
+    })
+}
+
+function initActual() {
+    initEnterPage()
+    initPageOne()
+    initPageTwo()
+    initPageThree()
+    loadModel()
+    loadingCallAnimate()
 }
 
 function addSky() {
-    /*sky = new THREE.CubeTextureLoader()
-        .setPath('../images/sky/')
-        .load([
-            'right.jpg', //右(-1,0,0)
-            'left.jpg', //左(1,0,0)
-            'up.jpg', //上(0,1,0)
-            'down.jpg', //下(0,-1,0)
-            'front.jpg', //前(0,0,1)
-            'back.jpg' //后(0,0,-1)
-        ]);
-    scene.background = sky*/
 
     var geom = new THREE.SphereBufferGeometry(200, 200, 200)//创建球体
-    //var geom = new THREE.SphereBufferGeometry(200, 200, 200)//创建球体
 
     var texture = new RGBELoader().load('../images/sky/scenery2.hdr')//加载hdr资源
     texture.encoding = THREE.RGBEEncoding;//设置编码属性的值，注：加载jpg时需要去掉这行
@@ -172,89 +185,10 @@ function addSky() {
     texture.magFilter = THREE.NearestFilter;//当一个纹素覆盖大于一个像素时，贴图将如何采样
     texture.flipY = true;//翻转图像的Y轴以匹配WebGL纹理坐标空间
 
-    //var texture = new THREE.TextureLoader().load('../images/sky/garden.jpg')//加载jpg资源方式
-
     var mat = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide })
     var mesh = new THREE.Mesh(geom, mat)
     scene.add(mesh)
 
-}
-
-function initWelcome() {
-    /*box = new THREE.Mesh(new THREE.BoxBufferGeometry(0.1, 0.5, 0.6),
-        new THREE.MeshStandardMaterial({  //物理材质
-            color: 0x000000,
-        })
-    );
-    box.name = 'welcome'
-    box.position.set(-6,2,-1);
-    box.castShadow = true;
-    box.receiveShadow = true;
-    group.add(box)*/
-
-    box = makeButtonMesh( 5, 1, 0.01, 0xffffff, 0.5 );
-    const boxButtonText = createText( '欢迎体验科大国创VR智能客服', 0.3 );
-    boxButtonText.position.set( 0, 0, 0.01 );
-    box.add( boxButtonText );
-    box.position.set( -7.41, 0.5, -0.1 );
-    box.name = "welcome"
-    box.rotateY(Math.PI / 2)
-    group.add(box);
-
-}
-
-function initVideo(){
-    //video.style.visibility ="hidden";
-    //video.play();
-
-    var texture = new THREE.Texture( videoDom );
-    texture.generateMipmaps = false;
-    texture.minFilter = THREE.NearestFilter;
-    texture.magFilter = THREE.NearestFilter;
-    texture.format = THREE.RGBFormat;
-
-    setInterval( function () {
-        if ( video.readyState >= video.HAVE_CURRENT_DATA ) {
-            texture.needsUpdate = true;
-        }
-    }, 1000 / 24 );
-
-    // left
-    var geometry = new THREE.SphereBufferGeometry( 500, 60, 40 );
-    // 反转x轴上的几何图形，使所有面都指向内部
-    geometry.scale( - 1, 1, 1 );
-
-    var uvs = geometry.attributes.uv.array;
-    for ( var i = 0; i < uvs.length; i += 2 ) {
-        uvs[ i ] *= 0.5;
-    }
-
-    var material = new THREE.MeshBasicMaterial( { map: texture } );
-
-    videoMesh = new THREE.Mesh( geometry, material );
-    videoMesh.rotation.y = - Math.PI / 2;
-    videoMesh.layers.set( 1 ); // display in left eye only
-    videoMesh.visible = false
-    scene.add( videoMesh );
-
-    // right
-    var geometry = new THREE.SphereBufferGeometry( 500, 60, 40 );
-    geometry.scale( - 1, 1, 1 );
-
-    var uvs = geometry.attributes.uv.array;
-
-    for ( var i = 0; i < uvs.length; i += 2 ) {
-        uvs[ i ] *= 0.5;
-        uvs[ i ] += 0.5;
-    }
-
-    var material = new THREE.MeshBasicMaterial( { map: texture } );
-
-    videoMesh = new THREE.Mesh( geometry, material );
-    videoMesh.rotation.y = - Math.PI / 2;
-    videoMesh.layers.set( 2 ); // display in right eye only
-    videoMesh.visible = false
-    scene.add( videoMesh );
 }
 
 function initEnterPage(){
@@ -276,11 +210,7 @@ function initEnterPage(){
 
     videoMesh = new THREE.Mesh(planeGeometry, material);
     videoMesh.position.set(0, 9, -30)
-    //videoMesh.rotateY(-Math.PI/1.03)
-    //videoMesh.visible = false
     scene.add(videoMesh)
-    /*videoDom.play();
-    videoDom.muted = false;*/
 
 
     /*播放视频*/
@@ -310,112 +240,10 @@ function initEnterPage(){
     enterPageButton.position.set( 8, -5, -30 );
     enterPageButton.name = "enterPage"
     group.add(enterPageButton);
-
-    //精灵对象Sprite,VR中无法使用
-    /*var texture = new THREE.TextureLoader().load("../images/textures/test.png");
-    var spriteMaterial = new THREE.SpriteMaterial({
-        color:0xffffff,//设置精灵矩形区域颜色
-        //rotation:Math.PI/4,//旋转精灵对象45度，弧度值
-        map: texture,//设置精灵纹理贴图
-        transparent:true,
-    });
-    var sprite = new THREE.Sprite(spriteMaterial); //精灵图
-    sprite.scale.set(2, 2, 2);
-    sprite.position.set(6, 5, 1);
-    group.add(sprite);*/
-
-    /*var texture = new THREE.TextureLoader().load("../images/textures/button.png");
-    let cubeGeometry = new THREE.PlaneBufferGeometry(1, 1)
-    let cubMaterial = new THREE.MeshBasicMaterial({
-        transparent:true,
-        map: texture,//设置纹理贴图
-        depthWrite: false,
-        alphaTest: 0.1
-    })
-    let cube = new THREE.Mesh( cubeGeometry,cubMaterial )
-    cube.position.set( 0, -3, -10);
-    group.add(cube)*/
 }
 
 /********欢迎语*******/
 function initPageOne(){
-    /*var fontLoader = new THREE.FontLoader();
-
-    const fontMaterials = [
-        new THREE.MeshPhongMaterial( { color: 0xffffff, flatShading: true } ), // front
-        new THREE.MeshPhongMaterial( { color: 0xffffff } ) // side
-    ];
-
-    fontLoader.load( '../plugins/Three/module/fonts/FZYaoTi_Regular.json', function ( font ) {
-        const geometry1 = new THREE.TextGeometry( 'A：你好，欢迎致电客服小优！', {
-            font: font,
-            size: 0.1,
-            height: 0.01, //字体深度
-            /!*curveSegments: 12, //曲线控制点数
-            bevelEnabled: true, //斜角
-            bevelThickness: 10, //斜角的深度
-            bevelSize: 8,  //斜角的大小
-            bevelSegments: 5  //斜角段数 *!/
-        });
-        textMesh1 = new THREE.Mesh( geometry1, fontMaterials );
-        textMesh1.position.set( 0, 2, 0.6 );
-        textMesh1.rotateY(Math.PI / 2)
-        textMesh1.name = "欢迎语一"
-        textMesh1.visible = false
-        group.add(textMesh1);
-
-        /!*欢迎语二*!/
-        const geometry2 = new THREE.TextGeometry( 'B：你好，欢迎致电客服小翼！', {
-            font: font,
-            size: 0.1,
-            height: 0.01,
-        });
-        textMesh2 = new THREE.Mesh( geometry2, fontMaterials );
-        textMesh2.position.set( 0, 1.7, 0.6 );
-        textMesh2.rotateY(Math.PI / 2)
-        textMesh2.name = "欢迎语二"
-        textMesh2.visible = false
-        group.add(textMesh2);
-
-        /!*欢迎语三*!/
-        const geometry3 = new THREE.TextGeometry( 'C：你好，欢迎致电客服小希！', {
-            font: font,
-            size: 0.1,
-            height: 0.01,
-        });
-        textMesh3 = new THREE.Mesh( geometry3, fontMaterials );
-        textMesh3.position.set( 0, 1.4, 0.6 );
-        textMesh3.rotateY(Math.PI / 2)
-        textMesh3.name = "欢迎语三"
-        textMesh3.visible = false
-        group.add(textMesh3);
-
-        /!*欢迎语四*!/
-        const geometry4 = new THREE.TextGeometry( 'D：你好，欢迎致电客服小创！', {
-            font: font,
-            size: 0.1,
-            height: 0.01,
-        });
-        textMesh4 = new THREE.Mesh( geometry4, fontMaterials );
-        textMesh4.position.set( 0, 1.1, 0.6 );
-        textMesh4.rotateY(Math.PI / 2)
-        textMesh4.name = "欢迎语四"
-        textMesh4.visible = false
-        group.add(textMesh4);
-
-    })*/
-
-    /*var texture = new THREE.TextureLoader().load("../images/textures/button.png");
-    let cubeGeometry = new THREE.PlaneBufferGeometry(1, 1)
-    let cubMaterial = new THREE.MeshBasicMaterial({
-        transparent:true,
-        map: texture,//设置纹理贴图
-        depthWrite: false,
-        alphaTest: 0.1
-    })
-    let cube = new THREE.Mesh( cubeGeometry,cubMaterial )
-    cube.position.set( 0, -3, -10);
-    group.add(cube)*/
 
     var welTexture = new THREE.TextureLoader().load("../images/wel_tips.png");
     var welGeometry = new THREE.PlaneBufferGeometry(24.4, 2)
@@ -656,9 +484,6 @@ function initPageThree(){
         alphaTest: 0.1
     })
     numInput = new THREE.Mesh( numGeometry,numMaterial );
-    /*numInputText = createText( ' 123', 0.1 );
-    numInputText.position.set( 0, 0, 0.01 );
-    numInput.add( numInputText );*/
     numInput.position.set( 0, 16, -1000 );
     numInput.name = "手机号码"
     scene.add(numInput);
@@ -921,16 +746,6 @@ function loadingCallAnimate(){
     callVideoDom.pause();
 }
 
-function makeButtonMesh( x, y, z, color, opacity ) {
-    const geometry = new THREE.BoxBufferGeometry( x, y, z );
-    //const material = new THREE.MeshStandardMaterial( { color: color, opacity:opacity, transparent:true } );
-    const material = new THREE.MeshBasicMaterial( { color: color, opacity:opacity, transparent:true } );
-    const buttonMesh = new THREE.Mesh( geometry, material );
-    buttonMesh.castShadow = true;
-    buttonMesh.receiveShadow = true;
-    return buttonMesh;
-}
-
 function loadModel() {
 
     /*房屋*/
@@ -948,137 +763,6 @@ function loadModel() {
         scene.add(obj);
     });
 
-    /*/!*主场景*!/
-    loader.load('world-main.glb', function (gltf) {
-        const obj = gltf.scene
-        obj.position.set(0, -5, 0)
-        obj.scale.set(1, 1, 1)
-        //console.log(obj);
-        obj.children.forEach(e => {
-            if( e.name.includes('holo-ring') ){
-                /!*e.material.transparent = true
-                e.material.opacity = 0.5*!/
-                rotateList.push( e )
-            }
-        })
-        scene.add(obj);
-    });
-
-    /!*BOY*!/
-    var boyLoader = new GLTFLoader().setPath('../models/boy/');
-    boyLoader.load('scene.gltf', function (gltf) {
-        const obj = gltf.scene
-        obj.position.set(-25, -5, 0)
-        obj.scale.set(2, 2, 2)
-        obj.rotateY(Math.PI/1.2)
-        scene.add(obj);
-
-        var animations = gltf.animations;
-        boyMixer = new THREE.AnimationMixer(obj);
-        boyMixer.clipAction(animations[0]).play();
-    });
-
-    /!*robot*!/
-    var robotLoader = new GLTFLoader().setPath('../models/robot/');
-    robotLoader.load('scene.gltf', function (gltf) {
-        const obj = gltf.scene
-        obj.position.set(-20, -4, -14)
-        obj.scale.set(2, 2, 2)
-        scene.add(obj);
-
-        var animations = gltf.animations;
-        robotMixer = new THREE.AnimationMixer(obj);
-        robotMixer.clipAction(animations[0]).play();
-    });*/
-
-}
-
-
-/*旋转文字*/
-var flow
-function initRotateText(){
-    const loader = new FontLoader();
-    loader.load( '../plugins/Three/module/fonts/helvetiker_regular.typeface.json', function ( font ) {
-
-        const curve = new THREE.CatmullRomCurve3(   //自定义路径曲线
-            [
-                //起点
-                new THREE.Vector3(-10, 0, 10),
-                //中间节点
-                new THREE.Vector3(-5,10,-10),
-                new THREE.Vector3(2, 5, -5),
-                //终点
-                new THREE.Vector3(10, 0, 10)
-            ],
-            true
-        );
-        curve.curveType = 'centripetal';
-
-        const geometry = new TextGeometry('Hello three.js!', {
-            font: font,
-            size: 1,
-            height: 0.05,
-            curveSegments: 12,
-            bevelEnabled: true,
-            bevelThickness: 0.02,
-            bevelSize: 0.01,
-            bevelOffset: 0,
-            bevelSegments: 5,
-        });
-
-        geometry.rotateX(Math.PI);
-
-        const material = new THREE.MeshStandardMaterial( {
-            color: 0x99ffff
-        } );
-
-        const objectToCurve = new THREE.Mesh( geometry, material );
-
-        flow = new Flow( objectToCurve );
-        flow.updateCurve( 0, curve );
-        scene.add( flow.object3D );
-
-
-
-
-    })
-}
-
-function loadAnimate() {
-    var loader = new GLTFLoader();
-    loader.load('../models/animate/scene.gltf', function (gltf) {
-
-        var animations = gltf.animations;
-        var obj = gltf.scene;
-
-        obj.scale.set(0.8, 0.8, 0.8)
-        obj.position.set(-6, 0.4, -2.8)
-        obj.rotateY(Math.PI / 2)
-
-        mixer = new THREE.AnimationMixer(obj);
-        mixer.clipAction(animations[0]).play();
-
-        scene.add(obj);
-    });
-}
-
-function loadVideo() {
-    var video = document.getElementById('video');
-    var VideoTexture = new THREE.VideoTexture(video);
-    VideoTexture.minFilter = THREE.LinearFilter;
-    VideoTexture.magFilter = THREE.LinearFilter;
-    VideoTexture.format = THREE.RGBFormat;
-
-    var planeGeometry = new THREE.PlaneGeometry(6.4, 4);
-    var material = new THREE.MeshPhongMaterial({
-        map: VideoTexture
-    });
-
-    material.side = THREE.DoubleSide;
-    var mesh = new THREE.Mesh(planeGeometry, material);
-    mesh.position.set(-7.41, 3.1, -0.1)
-    mesh.rotateY(Math.PI/2)
-    scene.add(mesh)
 }
 
 function onWindowResize() {
@@ -1100,11 +784,7 @@ function onSelectStart(event) {
 
         var intersection = intersections[ 0 ];
 
-        //tempMatrix.getInverse( controller.matrixWorld );
-
         var object = intersection.object;
-        /*object.matrix.premultiply( tempMatrix );
-        object.matrix.decompose( object.position, object.quaternion, object.scale );*/
 
 
         if( object.name === '欢迎语一' ||  object.name === '欢迎语二' ||  object.name === '欢迎语三' ||  object.name === '欢迎语四'){
@@ -1169,8 +849,6 @@ function onSelectStart(event) {
             zeroButton.material.map = new THREE.TextureLoader().load("../images/num.png");
             zeroButton.material.needsUpdate = true;
         }
-        //if( object.material && object.material.emissive ){ object.material.emissive.b = 1; }
-        //controller.add( object );
 
         controller.userData.selected = object;
 
@@ -1182,21 +860,9 @@ function onSelectEnd(event) {
 
     var controller = event.target;
 
-    if ( controller.userData.selected !== undefined ) {
+    if ( controller.userData.selected ) {
 
         var object = controller.userData.selected;
-        /*object.matrix.premultiply( controller.matrixWorld );
-        object.matrix.decompose( object.position, object.quaternion, object.scale );*/
-        //if( object.material && object.material.emissive ){ object.material.emissive.b = 0; }
-        //group.add( object );
-
-        /*if( object.name === 'welcome' ){
-            box.visible = false
-
-            videoMesh.visible = true
-            videoDom.play();
-            enterPageButton.visible = true
-        }else*/
         if( object.name === 'enterVideo' ){
             videoDom.play();
             videoDom.muted = false;
@@ -1391,7 +1057,7 @@ function onSelectEnd(event) {
                 data: result,
                 url:"https://192.168.52.35:9443/gc-csp-ai-outbound-gateway/outCallTask/addOutboundOneVr.action?accessToken=a82e9335cbffed63d30af9294822a39a20",
                 success: function (data) {
-                    //console.log(589);
+                    //
                 }
             })
 
@@ -1448,7 +1114,6 @@ function intersectObjects(controller) {
 
         var object = intersection.object;
         object.scale.set(1.2,1.2,1.2)
-        //if( object.material && object.material.emissive ) { object.material.emissive.r = 1; } //设置rgb通道R通道颜色
         intersected.push(object);
 
         line.scale.z = intersection.distance;
@@ -1467,7 +1132,6 @@ function cleanIntersected() {
 
         var object = intersected.pop();
         object.scale.set(1,1,1)
-        //if( object.material && object.material.emissive ) {object.material.emissive.r = 0;}
 
     }
 
@@ -1475,7 +1139,6 @@ function cleanIntersected() {
 
 function animate() {
     renderer.setAnimationLoop(render);
-    //composer1.render();
 }
 
 
@@ -1485,11 +1148,6 @@ function render() {
 
     intersectObjects(controller1);
     intersectObjects(controller2);
-
-    /*旋转文字动画*/
-    /*if ( flow ) {
-        flow.moveAlongCurve( 0.001 );
-    }*/
 
     /*模型动画*/
     var delta = clock.getDelta();
