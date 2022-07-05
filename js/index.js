@@ -47,7 +47,9 @@ var oneButton, twoButton, threeButton, fourButton, fiveButton, sixButton, sevenB
 /*模型中需要旋转的物体组*/
 var rotateList = [];
 
-var preview;
+var preview, skyview;
+
+var preChecked = true
 
 init();
 animate();
@@ -125,16 +127,31 @@ function init() {
 
     window.addEventListener('resize', onWindowResize, false);
 
-    preview = new THREE.Group();
-    scene.add(preview)
-
     initPreview()
-    addSky()
 }
 
+
 function initPreview() {
+    preview = new THREE.Group();
+    preview.rotateY(-Math.PI/2)
+    scene.add(preview)
+
     var video = document.getElementById('build');
-    video.play();
+        
+    if (preChecked) {
+        
+        video.play()
+
+        preChecked = false
+
+        $(document).on('click', '#VRButton', function(){
+            video.muted = false;
+        })
+
+        video.addEventListener('ended', function(){
+            initActual()
+        })
+    }
 
     var geometryL = new THREE.SphereBufferGeometry(50, 50, 50);
     geometryL.scale(-1, 1, 1);
@@ -159,11 +176,6 @@ function initPreview() {
     var skyBoxR = new THREE.Mesh(geometryR, materialR);
     skyBoxR.layers.set(2);
     preview.add(skyBoxR);
-
-    video.addEventListener('ended', function(){
-        scene.remove(preview)
-        initActual()
-    })
 }
 
 function initActual() {
@@ -171,11 +183,13 @@ function initActual() {
     initPageOne()
     initPageTwo()
     initPageThree()
-    loadModel()
     loadingCallAnimate()
 }
 
 function addSky() {
+
+    skyview = new THREE.Group();
+    scene.add(skyview)
 
     var geom = new THREE.SphereBufferGeometry(200, 200, 200)//创建球体
 
@@ -187,8 +201,9 @@ function addSky() {
 
     var mat = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide })
     var mesh = new THREE.Mesh(geom, mat)
-    scene.add(mesh)
+    skyview.add(mesh)
 
+    loadModel()
 }
 
 function initEnterPage(){
@@ -752,7 +767,6 @@ function loadModel() {
     var houseLoader = new GLTFLoader().setPath('../models/house/');
     houseLoader.load('scene.gltf', function (gltf) {
         const obj = gltf.scene
-        console.log(obj);
         obj.position.set(0, -10, 0)
         obj.scale.set(0.18, 0.18, 0.18)
         obj.traverse(e => {
@@ -760,7 +774,7 @@ function loadModel() {
                 e.visible = false
             }
         })
-        scene.add(obj);
+        skyview.add(obj);
     });
 
 }
@@ -872,6 +886,9 @@ function onSelectEnd(event) {
             enterPageButton.visible = false
             enterVideoButton.visible = false
 
+            scene.remove(preview)
+            addSky()
+
             /*p1*/
             welTip.position.z = -30
             wel1Button.position.z = -30
@@ -898,9 +915,11 @@ function onSelectEnd(event) {
             object.material.needsUpdate = true;
         }else if( object.name === 'govideo' ){
             videoMesh.visible = true
-            videoDom.play();
             enterPageButton.visible = true
             enterVideoButton.visible = true
+
+            scene.remove(skyview)
+            initPreview()
 
             /*p1*/
             welTip.position.z = -1000
