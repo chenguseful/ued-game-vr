@@ -224,7 +224,7 @@ function initEnterPage(){
     material.side = THREE.DoubleSide;
 
     videoMesh = new THREE.Mesh(planeGeometry, material);
-    videoMesh.position.set(0, 9, -30)
+    videoMesh.position.set(0, 5, -30)
     scene.add(videoMesh)
 
 
@@ -238,7 +238,7 @@ function initEnterPage(){
         alphaTest: 0.1
     })
     enterVideoButton = new THREE.Mesh( enterVideoGeometry,enterVideoMaterial )
-    enterVideoButton.position.set( -8, -5, -30 );
+    enterVideoButton.position.set( -8, -9, -30 );
     enterVideoButton.name = "enterVideo"
     group.add(enterVideoButton);
 
@@ -252,7 +252,7 @@ function initEnterPage(){
         alphaTest: 0.1
     })
     enterPageButton = new THREE.Mesh( enterPageGeometry,enterPageMaterial )
-    enterPageButton.position.set( 8, -5, -30 );
+    enterPageButton.position.set( 8, -9, -30 );
     enterPageButton.name = "enterPage"
     group.add(enterPageButton);
 }

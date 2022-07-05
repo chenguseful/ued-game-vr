@@ -17,3 +17,10 @@ html, body {
     border: none;
     outline: none;
 }
+
+#VRButton, a {
+	color: #007aff !important;
+	background: rgba(0, 122, 255, 0.2) !important;
+	border: 1px solid #007aff !important;
+	opacity: 0.8 !important;
+}
